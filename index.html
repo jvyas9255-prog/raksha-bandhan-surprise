@@ -18,6 +18,8 @@ button{border:0;border-radius:999px;padding:14px 24px;margin:8px;font-weight:800
 .heart{position:fixed;top:105vh;animation:rise linear forwards;pointer-events:none;z-index:-1}@keyframes rise{to{transform:translateY(-120vh) rotate(360deg);opacity:0}}
 .confetti{position:fixed;top:-20px;width:8px;height:14px;animation:fall 3s linear forwards;z-index:50}@keyframes fall{to{top:110vh;transform:rotate(720deg)}}
 .spark{position:fixed;width:4px;height:4px;border-radius:50%;background:#fff;opacity:.7;animation:twinkle 2s ease-in-out infinite alternate;z-index:-1}@keyframes twinkle{to{opacity:.1;transform:scale(.2)}}
+
+.emotional{position:relative;overflow:hidden}.emotional:before{content:"";position:absolute;inset:-40%;background:radial-gradient(circle,rgba(255,150,190,.16),transparent 48%);animation:heartGlow 4s ease-in-out infinite;pointer-events:none}.final-icon{font-size:78px;animation:finalFloat 3s ease-in-out infinite;filter:drop-shadow(0 0 22px rgba(255,180,100,.55));position:relative}.final-title{margin:8px 0 12px;font-size:clamp(30px,7vw,52px);color:#ffd36b}.final-sub{font-size:19px;line-height:1.85;max-width:650px;margin:0 auto;color:#fff0f7}.letter{margin:18px auto;padding:20px 22px;max-width:650px;border-radius:24px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);font-size:19px;line-height:1.85;color:#ffeaf4;box-shadow:inset 0 1px rgba(255,255,255,.08)}.signature{font-size:22px;color:#ffd6e7;margin-top:18px}.tiny-heart{display:inline-block;animation:beat 1.3s ease-in-out infinite}.emotional-actions{margin-top:8px}@keyframes heartGlow{50%{transform:scale(1.12);opacity:.7}}@keyframes finalFloat{50%{transform:translateY(-10px) scale(1.05)}}@keyframes beat{50%{transform:scale(1.25)}}
 @media(max-width:520px){.card{padding:25px 17px}.message{font-size:17px}}
 </style>
 </head>
@@ -45,10 +47,20 @@ button{border:0;border-radius:999px;padding:14px 24px;margin:8px;font-weight:800
 </div>
 <button onclick="go(4)">💌 One Final Message</button></div></div>
 
-<div class="screen" id="s4"><div class="card"><div class="rakhi">🎀</div>
-<h2>Happy Raksha Bandhan, Roshni! ❤️</h2><p>May your life always be filled with happiness, laughter and beautiful moments. Keep smiling, keep shining, and never forget how special you are. 🫶</p>
-<p><b>With Love, Your Brother ❤️</b></p><button onclick="celebrate()">🎉 Celebrate</button>
-<button class="secondary" onclick="sharePage()">🔗 Share</button><div id="qr"></div><div class="hint">QR uses this live website link.</div></div></div>
+<div class="screen" id="s4"><div class="card emotional">
+<div class="final-icon">💖</div>
+<h2 class="final-title">For You, My Dear Sister…</h2>
+<p class="final-sub">If I could give you one gift today, it would be the feeling of knowing that no matter where life takes us, <b>you will always have a brother cheering for you.</b> 🥹❤️</p>
+<div class="letter">
+Dear Roshni,<br><br>
+Thank you for every laugh, every little memory, every silly moment, and simply for being you. Some memories fade with time… but the bond between a brother and sister only becomes more precious. 🌸<br><br>
+Whenever you need someone, remember — <b>I'm always just a call away.</b> No matter how far, no matter how busy, you will always be my special sister. 🫶<br><br>
+May you always smile the brightest, dream the biggest, and get every happiness you deserve. ✨
+<div class="signature">With all my love,<br><b>Your Brother ❤️ <span class="tiny-heart">♥</span></b></div>
+</div>
+<p class="final-sub"><b>Happy Raksha Bandhan, Roshni! 🎀</b></p>
+<div class="emotional-actions"><button onclick="celebrate()">🎆 Make a Wish</button><button class="secondary" onclick="sharePage()">🔗 Share This Surprise</button></div>
+<div id="qr"></div><div class="hint">A little memory to keep forever ❤️</div></div></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
