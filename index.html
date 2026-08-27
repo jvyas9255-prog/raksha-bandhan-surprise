@@ -1,140 +1,60 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Raksha Bandhan Surprise ❤️</title>
 <style>
-*{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#08030b;color:#fff;overflow:hidden}
-body{background:radial-gradient(circle at 50% 20%,#5a123c 0,#1c0719 38%,#08030b 75%)}
-.screen{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transform:scale(1.03);transition:.7s ease}
-.screen.active{opacity:1;pointer-events:auto;transform:scale(1)}
-.card{width:min(760px,94vw);max-height:92vh;overflow:auto;text-align:center;padding:30px 24px;border:1px solid rgba(255,255,255,.16);border-radius:28px;background:rgba(255,255,255,.08);backdrop-filter:blur(16px);box-shadow:0 20px 80px rgba(0,0,0,.45)}
-h1{font-size:clamp(34px,8vw,68px);margin:10px 0;color:#ffd36a}
-h2{font-size:clamp(26px,6vw,42px);margin:8px 0;color:#ffb7d8}
-p{font-size:18px;line-height:1.65;color:#f7eaf2}
-button{border:0;border-radius:999px;padding:14px 24px;font-size:16px;font-weight:700;cursor:pointer;margin:8px;background:linear-gradient(135deg,#ff4f9a,#ff9d4d);color:#fff;box-shadow:0 10px 30px rgba(255,79,154,.25)}
-button.secondary{background:rgba(255,255,255,.12);box-shadow:none}
-.rakhi{font-size:110px;filter:drop-shadow(0 0 25px rgba(255,170,70,.5));animation:float 2.8s ease-in-out infinite}
-@keyframes float{50%{transform:translateY(-12px) rotate(3deg)}}
-.heart{position:fixed;top:100vh;animation:rise linear forwards;pointer-events:none}
-@keyframes rise{to{transform:translateY(-120vh) rotate(360deg);opacity:0}}
-.progress{height:5px;background:rgba(255,255,255,.12);border-radius:99px;overflow:hidden;margin:0 auto 20px;max-width:420px}
-.progress i{display:block;height:100%;width:0;background:#ff8dbd;transition:.6s}
-.message{font-size:21px;line-height:1.8;text-align:left;padding:20px;border-radius:20px;background:rgba(0,0,0,.18)}
-.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
-.photo{aspect-ratio:1;border-radius:18px;background:linear-gradient(135deg,#ff7eb3,#7b2cbf);display:flex;align-items:center;justify-content:center;font-size:38px;border:1px solid rgba(255,255,255,.14)}
-.small{font-size:13px;opacity:.7}
-#qr{margin:18px auto;padding:14px;background:#fff;width:max-content;border-radius:18px}
-.confetti{position:fixed;width:8px;height:14px;top:-20px;animation:fall 3s linear forwards;z-index:10}
-@keyframes fall{to{top:110vh;transform:rotate(720deg)}}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:system-ui,sans-serif}
+body{color:#fff;background:radial-gradient(circle at 50% 15%,#711441,#26091f 42%,#08030b 82%)}
+.screen{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transform:scale(1.06);transition:.8s}.screen.active{opacity:1;pointer-events:auto;transform:scale(1)}
+.card{width:min(780px,94vw);max-height:92vh;overflow:auto;text-align:center;padding:32px 24px;border:1px solid #ffffff2b;border-radius:30px;background:#ffffff12;backdrop-filter:blur(18px);box-shadow:0 25px 100px #0009}
+h1{font-size:clamp(38px,9vw,74px);margin:15px 0;color:#ffd36b;text-shadow:0 0 30px #ffb84d55}h2{font-size:clamp(28px,6vw,44px);color:#ffb8d9}p{font-size:18px;line-height:1.7;color:#f8eaf2}
+.rakhi{font-size:120px;display:inline-block;animation:float 3s ease-in-out infinite;filter:drop-shadow(0 0 25px #ffb450)}
+@keyframes float{50%{transform:translateY(-14px) rotate(3deg)}}
+button{border:0;border-radius:999px;padding:14px 24px;margin:8px;font-weight:800;font-size:16px;cursor:pointer;color:#fff;background:linear-gradient(135deg,#ff4f9a,#ff9c4a);box-shadow:0 12px 35px #ff4f9a55;transition:.25s}button:hover{transform:translateY(-2px) scale(1.02)}
+.secondary,.music{background:#ffffff18;box-shadow:none}.music{position:fixed;right:16px;top:16px;z-index:20;padding:10px 15px}
+.message{text-align:left;padding:22px;border-radius:22px;background:#0003;font-size:20px;line-height:1.8}.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.photo{aspect-ratio:1;border-radius:20px;background:linear-gradient(135deg,#ff7eb3,#7b2cbf);display:flex;align-items:center;justify-content:center;font-size:42px}
+.progress{height:5px;background:#ffffff18;border-radius:9px}.progress i{display:block;height:100%;width:0;background:#ff8dbd;transition:.8s}.hint{font-size:12px;opacity:.65}
+.heart{position:fixed;top:105vh;animation:rise linear forwards;pointer-events:none;z-index:-1}@keyframes rise{to{transform:translateY(-120vh) rotate(360deg);opacity:0}}
+.confetti{position:fixed;top:-20px;width:8px;height:14px;animation:fall 3s linear forwards;z-index:50}@keyframes fall{to{top:110vh;transform:rotate(720deg)}}
+.spark{position:fixed;width:4px;height:4px;border-radius:50%;background:#fff;opacity:.7;animation:twinkle 2s ease-in-out infinite alternate;z-index:-1}@keyframes twinkle{to{opacity:.1;transform:scale(.2)}}
+@media(max-width:520px){.card{padding:25px 17px}.message{font-size:17px}}
 </style>
 </head>
 <body>
+<button class="music" id="musicBtn" onclick="toggleMusic()">🎵 Music Off</button>
 
-<div class="screen active" id="s1">
-  <div class="card">
-    <div class="rakhi">🪷</div>
-    <div class="small">A little surprise made with love</div>
-    <h1>Happy Raksha Bandhan ❤️</h1>
-    <p>Hey <b>Roshni</b>! Ready for your little surprise?</p>
-    <button onclick="go(2)">💖 Tap to Open</button>
-  </div>
-</div>
+<div class="screen active" id="s1"><div class="card">
+<div>✨ A little surprise made with love ✨</div><div class="rakhi">🪷</div>
+<h1>Happy Raksha Bandhan ❤️</h1><p>Hey <b>Roshni</b>! Something special is waiting for you...</p>
+<button onclick="begin();go(2)">💖 Tap to Open</button><div class="hint">Tap once to start the music & magic</div>
+</div></div>
 
-<div class="screen" id="s2">
-  <div class="card">
-    <div class="progress"><i id="bar"></i></div>
-    <h2>For My Special Sister 💕</h2>
-    <div class="message">
-      Dear Sister,<br><br>
-      Some bonds don't need a reason. They simply become a beautiful part of life.
-      This Raksha Bandhan is a tiny reminder that our memories, laughs and silly moments
-      will always be special. 🥹❤️<br><br>
-      No matter how busy life gets, this bond will always have a special place in my heart.
-    </div>
-    <button onclick="go(3)">🎁 There's More...</button>
-  </div>
-</div>
+<div class="screen" id="s2"><div class="card"><div class="progress"><i id="b1"></i></div>
+<h2>For My Special Sister 💕</h2>
+<div class="message">Dear Sister,<br><br>Some bonds don't need a reason. They simply become a beautiful part of life. This Raksha Bandhan is a tiny reminder that our memories, laughs and silly moments will always be special. 🥹❤️<br><br>No matter how busy life gets, this bond will always have a special place in my heart.</div>
+<button onclick="go(3)">🎁 There's More...</button></div></div>
 
-<div class="screen" id="s3">
-  <div class="card">
-    <div class="progress"><i id="bar2"></i></div>
-    <h2>Our Little Memories 📸</h2>
-    <p>Replace these three boxes with your favourite photos.</p>
-    <div class="photos">
-      <div class="photo">📷</div>
-      <div class="photo">💞</div>
-      <div class="photo">✨</div>
-    </div>
-    <button onclick="go(4)">💌 One Final Message</button>
-  </div>
-</div>
+<div class="screen" id="s3"><div class="card"><div class="progress"><i id="b2"></i></div>
+<h2>Our Little Memories 📸</h2><p>Photos can be added here later — the animation is already ready. ✨</p>
+<div class="photos"><div class="photo">📷</div><div class="photo">💞</div><div class="photo">✨</div></div>
+<button onclick="go(4)">💌 One Final Message</button></div></div>
 
-<div class="screen" id="s4">
-  <div class="card">
-    <div class="rakhi">🎀</div>
-    <h2>Happy Raksha Bandhan, Roshni! ❤️</h2>
-    <p>
-      May your life always be filled with happiness, laughter and beautiful moments.
-      Keep smiling, keep shining, and never forget how special you are. 🫶
-    </p>
-    <p><b>With Love, Your Brother ❤️</b></p>
-    <button onclick="celebrate()">🎉 Celebrate</button>
-    <button class="secondary" onclick="sharePage()">🔗 Share</button>
-    <div id="qr"></div>
-    <div class="small">After hosting this page, the QR code above will point to the current website link.</div>
-  </div>
-</div>
+<div class="screen" id="s4"><div class="card"><div class="rakhi">🎀</div>
+<h2>Happy Raksha Bandhan, Roshni! ❤️</h2><p>May your life always be filled with happiness, laughter and beautiful moments. Keep smiling, keep shining, and never forget how special you are. 🫶</p>
+<p><b>With Love, Your Brother ❤️</b></p><button onclick="celebrate()">🎉 Celebrate</button>
+<button class="secondary" onclick="sharePage()">🔗 Share</button><div id="qr"></div><div class="hint">QR uses this live website link.</div></div></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
-let current=1;
-function go(n){
-  document.getElementById('s'+current).classList.remove('active');
-  current=n;
-  document.getElementById('s'+current).classList.add('active');
-  if(n===2) document.getElementById('bar').style.width='33%';
-  if(n===3) document.getElementById('bar2').style.width='66%';
-  if(n===4){
-    setTimeout(()=>{
-      const box=document.getElementById('qr');
-      box.innerHTML='';
-      new QRCode(box,{text:location.href,width:180,height:180});
-    },100);
-  }
-}
-function heart(){
-  const h=document.createElement('div');
-  h.className='heart';
-  h.textContent=['❤️','💖','💕','✨','🌸'][Math.floor(Math.random()*5)];
-  h.style.left=Math.random()*100+'vw';
-  h.style.fontSize=(16+Math.random()*24)+'px';
-  h.style.animationDuration=(3+Math.random()*3)+'s';
-  document.body.appendChild(h);
-  setTimeout(()=>h.remove(),6500);
-}
-setInterval(heart,450);
-function celebrate(){
-  for(let i=0;i<90;i++){
-    const c=document.createElement('div');
-    c.className='confetti';
-    c.style.left=Math.random()*100+'vw';
-    c.style.background=`hsl(${Math.random()*360},90%,65%)`;
-    c.style.animationDelay=(Math.random()*.8)+'s';
-    document.body.appendChild(c);
-    setTimeout(()=>c.remove(),4000);
-  }
-}
-async function sharePage(){
-  if(navigator.share){
-    await navigator.share({title:'Raksha Bandhan Surprise ❤️',text:'A little surprise for you!',url:location.href});
-  }else{
-    await navigator.clipboard.writeText(location.href);
-    alert('Website link copied!');
-  }
-}
-</script>
-</body>
-</html>
+let cur=1,ctx,gain,timer,on=false;
+function go(n){document.getElementById('s'+cur).classList.remove('active');cur=n;document.getElementById('s'+cur).classList.add('active');if(n==2)b1.style.width='33%';if(n==3)b2.style.width='66%';if(n==4)setTimeout(()=>{let q=document.getElementById('qr');q.innerHTML='';new QRCode(q,{text:location.href,width:170,height:170})},300)}
+function begin(){if(!on)startMusic()}
+function startMusic(){ctx=new(window.AudioContext||window.webkitAudioContext)();gain=ctx.createGain();gain.gain.value=.05;gain.connect(ctx.destination);on=true;musicBtn.textContent='🎵 Music On';let notes=[261.63,329.63,392,523.25,392,329.63,293.66,349.23],i=0;timer=setInterval(()=>{let o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.value=notes[i++%notes.length];g.gain.setValueAtTime(.0001,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.12,ctx.currentTime+.04);g.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+.6);o.connect(g);g.connect(gain);o.start();o.stop(ctx.currentTime+.65)},620)}
+function toggleMusic(){if(on){on=false;clearInterval(timer);gain.gain.value=0;musicBtn.textContent='🎵 Music Off'}else startMusic()}
+function hearts(){let h=document.createElement('div');h.className='heart';h.textContent=['❤️','💖','💕','✨','🌸'][Math.floor(Math.random()*5)];h.style.left=Math.random()*100+'vw';h.style.fontSize=15+Math.random()*25+'px';h.style.animationDuration=3+Math.random()*3+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),6500)}setInterval(hearts,500);
+for(let i=0;i<35;i++){let s=document.createElement('div');s.className='spark';s.style.left=Math.random()*100+'vw';s.style.top=Math.random()*100+'vh';s.style.animationDelay=Math.random()*2+'s';document.body.appendChild(s)}
+function celebrate(){for(let i=0;i<90;i++){let c=document.createElement('div');c.className='confetti';c.style.left=Math.random()*100+'vw';c.style.background=`hsl(${Math.random()*360},90%,65%)`;c.style.animationDelay=Math.random()*.8+'s';document.body.appendChild(c);setTimeout(()=>c.remove(),4000)}}
+async function sharePage(){if(navigator.share)await navigator.share({title:'Raksha Bandhan Surprise ❤️',text:'A little surprise for you!',url:location.href});else{await navigator.clipboard.writeText(location.href);alert('Website link copied!')}}
+</script></body></html>
