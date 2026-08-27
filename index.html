@@ -13,7 +13,7 @@ h1{font-size:clamp(38px,9vw,74px);margin:15px 0;color:#ffd36b;text-shadow:0 0 30
 @keyframes float{50%{transform:translateY(-14px) rotate(3deg)}}
 button{border:0;border-radius:999px;padding:14px 24px;margin:8px;font-weight:800;font-size:16px;cursor:pointer;color:#fff;background:linear-gradient(135deg,#ff4f9a,#ff9c4a);box-shadow:0 12px 35px #ff4f9a55;transition:.25s}button:hover{transform:translateY(-2px) scale(1.02)}
 .secondary,.music{background:#ffffff18;box-shadow:none}.music{position:fixed;right:16px;top:16px;z-index:20;padding:10px 15px}
-.message{text-align:left;padding:22px;border-radius:22px;background:#0003;font-size:20px;line-height:1.8}.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.photo{aspect-ratio:1;border-radius:20px;background:linear-gradient(135deg,#ff7eb3,#7b2cbf);display:flex;align-items:center;justify-content:center;font-size:42px}
+.message{text-align:left;padding:22px;border-radius:22px;background:#0003;font-size:20px;line-height:1.8}.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.photo{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:20px;border:2px solid #ffffff30;box-shadow:0 12px 35px #0006;display:block}
 .progress{height:5px;background:#ffffff18;border-radius:9px}.progress i{display:block;height:100%;width:0;background:#ff8dbd;transition:.8s}.hint{font-size:12px;opacity:.65}
 .heart{position:fixed;top:105vh;animation:rise linear forwards;pointer-events:none;z-index:-1}@keyframes rise{to{transform:translateY(-120vh) rotate(360deg);opacity:0}}
 .confetti{position:fixed;top:-20px;width:8px;height:14px;animation:fall 3s linear forwards;z-index:50}@keyframes fall{to{top:110vh;transform:rotate(720deg)}}
@@ -38,7 +38,11 @@ button{border:0;border-radius:999px;padding:14px 24px;margin:8px;font-weight:800
 
 <div class="screen" id="s3"><div class="card"><div class="progress"><i id="b2"></i></div>
 <h2>Our Little Memories 📸</h2><p>Photos can be added here later — the animation is already ready. ✨</p>
-<div class="photos"><div class="photo">📷</div><div class="photo">💞</div><div class="photo">✨</div></div>
+<div class="photos">
+<img class="photo" src="photo1.jpeg" alt="Brother and sister memory">
+<img class="photo" src="photo2.jpeg" alt="Family memory">
+<img class="photo" src="photo3.jpeg" alt="Brother and sister memory">
+</div>
 <button onclick="go(4)">💌 One Final Message</button></div></div>
 
 <div class="screen" id="s4"><div class="card"><div class="rakhi">🎀</div>
