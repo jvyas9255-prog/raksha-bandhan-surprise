@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -23,6 +22,7 @@ button{border:0;border-radius:999px;padding:14px 24px;margin:8px;font-weight:800
 </style>
 </head>
 <body>
+<audio id="bgMusic" preload="auto" loop><source src="music.mp3" type="audio/mpeg"></audio>
 <button class="music" id="musicBtn" onclick="toggleMusic()">🎵 Music Off</button>
 
 <div class="screen active" id="s1"><div class="card">
@@ -48,11 +48,10 @@ button{border:0;border-radius:999px;padding:14px 24px;margin:8px;font-weight:800
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
-let cur=1,ctx,gain,timer,on=false;
+let cur=1,on=false;const audio=document.getElementById('bgMusic');
 function go(n){document.getElementById('s'+cur).classList.remove('active');cur=n;document.getElementById('s'+cur).classList.add('active');if(n==2)b1.style.width='33%';if(n==3)b2.style.width='66%';if(n==4)setTimeout(()=>{let q=document.getElementById('qr');q.innerHTML='';new QRCode(q,{text:location.href,width:170,height:170})},300)}
-function begin(){if(!on)startMusic()}
-function startMusic(){ctx=new(window.AudioContext||window.webkitAudioContext)();gain=ctx.createGain();gain.gain.value=.05;gain.connect(ctx.destination);on=true;musicBtn.textContent='🎵 Music On';let notes=[261.63,329.63,392,523.25,392,329.63,293.66,349.23],i=0;timer=setInterval(()=>{let o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.value=notes[i++%notes.length];g.gain.setValueAtTime(.0001,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.12,ctx.currentTime+.04);g.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+.6);o.connect(g);g.connect(gain);o.start();o.stop(ctx.currentTime+.65)},620)}
-function toggleMusic(){if(on){on=false;clearInterval(timer);gain.gain.value=0;musicBtn.textContent='🎵 Music Off'}else startMusic()}
+function begin(){audio.volume=.55;audio.play().then(()=>{on=true;musicBtn.textContent='🎵 Music On'}).catch(()=>{})}
+function toggleMusic(){if(on){audio.pause();on=false;musicBtn.textContent='🎵 Music Off'}else{audio.play().then(()=>{on=true;musicBtn.textContent='🎵 Music On'}).catch(()=>{})}}
 function hearts(){let h=document.createElement('div');h.className='heart';h.textContent=['❤️','💖','💕','✨','🌸'][Math.floor(Math.random()*5)];h.style.left=Math.random()*100+'vw';h.style.fontSize=15+Math.random()*25+'px';h.style.animationDuration=3+Math.random()*3+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),6500)}setInterval(hearts,500);
 for(let i=0;i<35;i++){let s=document.createElement('div');s.className='spark';s.style.left=Math.random()*100+'vw';s.style.top=Math.random()*100+'vh';s.style.animationDelay=Math.random()*2+'s';document.body.appendChild(s)}
 function celebrate(){for(let i=0;i<90;i++){let c=document.createElement('div');c.className='confetti';c.style.left=Math.random()*100+'vw';c.style.background=`hsl(${Math.random()*360},90%,65%)`;c.style.animationDelay=Math.random()*.8+'s';document.body.appendChild(c);setTimeout(()=>c.remove(),4000)}}
